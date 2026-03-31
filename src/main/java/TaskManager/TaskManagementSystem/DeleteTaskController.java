@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class DeleteTaskController {
     @GetMapping("/DeleteTaskController")
-    String createTask(){
+    String deleteTask(){
         return "Deleting data....";
     }
 }

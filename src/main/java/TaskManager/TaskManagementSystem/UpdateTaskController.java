@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class UpdateTaskController {
     @GetMapping("/UpdateTaskController")
-    String createTask(){
+    String updateTask(){
         return "Updating....";
     }
 }

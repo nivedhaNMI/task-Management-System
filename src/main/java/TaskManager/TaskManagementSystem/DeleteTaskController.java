@@ -1,12 +1,12 @@
 package TaskManager.TaskManagementSystem;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
+@RequestMapping("/api/v1/todo")
 public class DeleteTaskController {
-    @GetMapping("/DeleteTaskController")
-    String deleteTask(){
-        return "Deleting data....";
-    }
-}
+    @DeleteMapping("/delete/{id}")
+    String todoWithPutRequestId(@PathVariable int id){
+        return "Deleting your ID ..."+id;
+    }}
+

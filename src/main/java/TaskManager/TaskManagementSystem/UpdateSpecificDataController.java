@@ -6,7 +6,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class UpdateSpecificDataController {
     @GetMapping("/UpdateSpecificDataController")
-    String createTask(){
+    String updateSpecific(){
         return "Specific data to be changed";
     }
 }
+   

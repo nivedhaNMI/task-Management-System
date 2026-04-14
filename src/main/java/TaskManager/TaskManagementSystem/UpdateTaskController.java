@@ -1,12 +1,13 @@
 package TaskManager.TaskManagementSystem;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
+@RequestMapping("/api/v1/todo")
 public class UpdateTaskController {
-    @GetMapping("/UpdateTaskController")
-    String createTask(){
-        return "Updating....";
+    //POST request with @ Request Body
+    @PostMapping("/update")
+    String todoWithPutRequestBody(@RequestBody String body,@RequestBody  int age){
+        return body+age;
     }
 }

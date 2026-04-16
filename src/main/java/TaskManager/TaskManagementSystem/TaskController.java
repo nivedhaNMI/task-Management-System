@@ -1,6 +1,9 @@
 package TaskManager.TaskManagementSystem;
 
+import TaskManager.TaskManagementSystem.models.TaskEntity;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -29,5 +32,8 @@ public class TaskController {
         return taskService.taskPrint();
     }
     //POST request with @ Request Body
-
+    @PostMapping("/CreateTask")
+    ResponseEntity<TaskEntity> createUser(@RequestBody TaskEntity taskEntity){
+        return new ResponseEntity<>(taskService.createTask(taskEntity), HttpStatus.CREATED);
+    }
 }

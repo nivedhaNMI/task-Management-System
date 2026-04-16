@@ -1,11 +1,9 @@
 package TaskManager.TaskManagementSystem;
 
-import org.springframework.stereotype.Component;
+import TaskManager.TaskManagementSystem.models.TaskEntity;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-@Component
-public class TaskRepository {
-
-    public String getAllTask() {
-        return "Getting Tasks";
-    }
+@Repository
+public interface TaskRepository extends JpaRepository<TaskEntity, Integer> {
 }

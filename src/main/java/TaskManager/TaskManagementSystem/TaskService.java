@@ -1,5 +1,6 @@
 package TaskManager.TaskManagementSystem;
 
+import TaskManager.TaskManagementSystem.models.TaskEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,6 +11,10 @@ public class TaskService {
     private TaskRepository taskRepository;
 
     public String taskPrint() {
-        return taskRepository.getAllTask();
+        return "Task service working";
+    }
+
+    public TaskEntity createTask(TaskEntity taskEntity) {
+        return taskRepository.save(taskEntity);
     }
 }

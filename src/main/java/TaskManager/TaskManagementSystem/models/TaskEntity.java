@@ -12,6 +12,7 @@ public class TaskEntity {
     public Integer id;
     public String title;
 
-    public boolean isCompleted;
+    public Boolean completed;
     public String description;
+
 }

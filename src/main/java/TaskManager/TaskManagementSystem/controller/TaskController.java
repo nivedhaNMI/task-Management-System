@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import TaskManager.TaskManagementSystem.dto.TaskPatchRequest;
 
 @RestController
 @RequestMapping("/api/v1/tasks")
@@ -23,6 +24,25 @@ public class TaskController {
     public ResponseEntity<TaskEntity> createTask(@RequestBody TaskEntity taskEntity) {
         TaskEntity createdTask = taskService.createTask(taskEntity);
         return new ResponseEntity<>(createdTask, HttpStatus.CREATED);
+    }
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<Void> deleteTask(@PathVariable int id) {
+        taskService.deleteTask(id);
+        return ResponseEntity.noContent().build();
+    }
+
+    @PutMapping("/update/{id}")
+    public ResponseEntity<TaskEntity> updateTask(@PathVariable Integer id, @RequestBody TaskEntity taskEntity) {
+        TaskEntity updatedTask = taskService.updateTask(id,taskEntity);
+        return ResponseEntity.ok(updatedTask);
+    }
+    @PatchMapping("/patch/{id}")
+    public ResponseEntity<TaskEntity> patchTask(
+            @PathVariable Integer id,
+            @RequestBody TaskPatchRequest request) {
+
+        TaskEntity updatedTask = taskService.patchTask(id, request);
+        return ResponseEntity.ok(updatedTask);
     }
 }
 

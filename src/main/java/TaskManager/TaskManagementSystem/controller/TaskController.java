@@ -1,11 +1,38 @@
-package TaskManager.TaskManagementSystem;
+package TaskManager.TaskManagementSystem.controller;
 
 import TaskManager.TaskManagementSystem.models.TaskEntity;
+import TaskManager.TaskManagementSystem.service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+@RestController
+@RequestMapping("/api/v1/tasks")
+public class TaskController {
+
+    @Autowired
+    private TaskService taskService;
+
+    @GetMapping("/get")
+    public String getTasks() {
+        return taskService.taskPrint();
+    }
+
+    @PostMapping("/create")
+    public ResponseEntity<TaskEntity> createTask(@RequestBody TaskEntity taskEntity) {
+        TaskEntity createdTask = taskService.createTask(taskEntity);
+        return new ResponseEntity<>(createdTask, HttpStatus.CREATED);
+    }
+}
+
+
+
+
+
+
+
+/*
 @RestController
 @RequestMapping("/api/v1/task")
 public class TaskController {
@@ -36,4 +63,4 @@ public class TaskController {
     ResponseEntity<TaskEntity> createUser(@RequestBody TaskEntity taskEntity){
         return new ResponseEntity<>(taskService.createTask(taskEntity), HttpStatus.CREATED);
     }
-}
+}*/

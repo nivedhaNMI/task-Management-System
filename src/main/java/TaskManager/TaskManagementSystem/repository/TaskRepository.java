@@ -1,4 +1,4 @@
-package TaskManager.TaskManagementSystem;
+package TaskManager.TaskManagementSystem.repository;
 
 import TaskManager.TaskManagementSystem.models.TaskEntity;
 import org.springframework.data.jpa.repository.JpaRepository;

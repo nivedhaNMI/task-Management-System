@@ -1,6 +1,7 @@
-package TaskManager.TaskManagementSystem;
+package TaskManager.TaskManagementSystem.service;
 
 import TaskManager.TaskManagementSystem.models.TaskEntity;
+import TaskManager.TaskManagementSystem.repository.TaskRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
